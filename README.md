@@ -45,3 +45,7 @@ Shopify API
 
 Google Sheets API
 # n8n-shopify-sav-automation
+
+
+
+![alt text](<images/mermaid-diagram .png>)
