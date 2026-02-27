@@ -1,0 +1,47 @@
+/* --- Image de base --- */
+.zoom-wrapper {
+    display: inline-block;
+    cursor: zoom-in;
+}
+
+.zoom-wrapper img {
+    max-width: 100%;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* --- Overlay plein écran --- */
+.zoom-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    cursor: zoom-out;
+    transition: opacity 0.3s ease;
+}
+
+/* --- Quand la checkbox est cochée (= clic) --- */
+.zoom-checkbox:checked~.zoom-wrapper img {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    z-index: 1000;
+    cursor: zoom-out;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.zoom-checkbox:checked~.zoom-overlay {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.zoom-checkbox:checked~.zoom-wrapper {
+    cursor: zoom-out;
+}
